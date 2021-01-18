@@ -109,7 +109,8 @@ def save_qualifying_loans(qualifying_loans):
         qualifying_loans (list of lists): The qualifying bank loans.
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
-    # YOUR CODE HERE!
+    # YOUR CODE HERE!           # Use Path from pathlib to output the test 
+                                # csv to ./data/output/qualifying_loans.csv
 
 
 def run():
