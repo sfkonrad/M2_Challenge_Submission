@@ -7,11 +7,11 @@ Example:
     $ python app.py
 """
 import sys
+from pathlib import Path
 import fire
 import questionary
-from pathlib import Path
 
-from qualifier.utils.fileio import load_csv
+from qualifier.utils.fileio import load_csv, save_csv
 
 from qualifier.utils.calculators import (
     calculate_monthly_debt_ratio,
@@ -102,15 +102,30 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     return bank_data_filtered
 
 
+# def save_qualifying_loans(qualifying_loans):
+#     """Saves the qualifying loans to a CSV file.
+
+#     Args:
+#         qualifying_loans (list of lists): The qualifying bank loans.
+#     """
+
+#     csvpath = Path('...qualifying_loans.csv')
+#     save_csv(csvpath, qualifying_loans)
+
+
+
 def save_qualifying_loans(qualifying_loans):
-    """Saves the qualifying loans to a CSV file.
+    """Request a file path for saving the qualifying loans to a CSV file.
 
     Args:
         qualifying_loans (list of lists): The qualifying bank loans.
     """
-
-    csvpath = Path('qualifying_loans.csv')
+    csvpath = questionary.text("Enter a file path for saving the Qualifying_Loans (.csv):").ask()
     save_csv(csvpath, qualifying_loans)
+
+    print(">>>> Great!!! The Qualifying Loans have been saved to the path provided. <<<<")
+
+
 
 
 def run():
@@ -133,3 +148,9 @@ def run():
 
 if __name__ == "__main__":
     fire.Fire(run)
+
+# i/o Examples:
+# in... 
+# C:/Users/konra/DesKtop/FinTech_Workspace/M02/M2_Challenge/W-A-R-N-I-N-G-_-L-I-V-E-_-G-I-T-_-R-E-P-O-M02/Module 2 Challenge - Loan Qualifier Software Design/loan_qualifier/data/daily_rate_sheet.csv
+# out...
+# C:/Users/konra/DesKtop/FinTech_Workspace/M02/M2_Challenge/W-A-R-N-I-N-G-_-L-I-V-E-_-G-I-T-_-R-E-P-O-M02/Module 2 Challenge - Loan Qualifier Software Design/loan_qualifier/qualifying_loans.csv
