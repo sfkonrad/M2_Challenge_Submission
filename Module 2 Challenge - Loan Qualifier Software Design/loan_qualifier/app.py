@@ -113,7 +113,6 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
 #     save_csv(csvpath, qualifying_loans)
 
 
-
 def save_qualifying_loans(qualifying_loans):
     """Request a file path for saving the qualifying loans to a CSV file.
 
