@@ -156,6 +156,6 @@ if __name__ == "__main__":
 
 # i/o Examples:
 # in... 
-# C:/Users/konra/DesKtop/FinTech_Workspace/M02/M2_Challenge/W-A-R-N-I-N-G-_-L-I-V-E-_-G-I-T-_-R-E-P-O-M02/Module_2_Challenge_Loan_Qualifier_Software_Design/loan_qualifier/data/daily_rate_sheet.csv
+# C:/Users/konra/DesKtop/FinTech_Workspace/M02/M2_Challenge/W-A-R-N-I-N-G-_-L-I-V-E-_-G-I-T-_-R-E-P-O-M02/Module 2 Challenge - Loan Qualifier Software Design/loan_qualifier/data/daily_rate_sheet.csv
 # out...
-# C:/Users/konra/DesKtop/FinTech_Workspace/M02/M2_Challenge/W-A-R-N-I-N-G-_-L-I-V-E-_-G-I-T-_-R-E-P-O-M02/Module_2_Challenge_Loan_Qualifier_Software_Design/loan_qualifier/qualifying_loans.csv
+# C:/Users/konra/DesKtop/FinTech_Workspace/M02/M2_Challenge/W-A-R-N-I-N-G-_-L-I-V-E-_-G-I-T-_-R-E-P-O-M02/Module 2 Challenge - Loan Qualifier Software Design/loan_qualifier/qualifying_loans.csv

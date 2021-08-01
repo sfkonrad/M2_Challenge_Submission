@@ -127,12 +127,14 @@ def save_qualifying_loans(qualifying_loans):
         csvpath = questionary.text(
             "Enter a file path for saving the qualifying_loans.csv:"
         ).ask()
-        # csvpath = Path(csvpath)
-        # csvpath = Path('qualifying_loans.csv')        
         save_csv(csvpath, qualifying_loans)
         print(">>>> Great!!! The Qualifying Loans have been saved to the path provided. <<<<")
 
-        
+    
+
+
+
+
 def run():
     """The main function for running the script."""
 
@@ -156,6 +158,6 @@ if __name__ == "__main__":
 
 # i/o Examples:
 # in... 
-# C:/Users/konra/DesKtop/FinTech_Workspace/M02/M2_Challenge/W-A-R-N-I-N-G-_-L-I-V-E-_-G-I-T-_-R-E-P-O-M02/Module_2_Challenge_Loan_Qualifier_Software_Design/loan_qualifier/data/daily_rate_sheet.csv
+# C:/Users/konra/DesKtop/FinTech_Workspace/M02/M2_Challenge/W-A-R-N-I-N-G-_-L-I-V-E-_-G-I-T-_-R-E-P-O-M02/Module 2 Challenge - Loan Qualifier Software Design/loan_qualifier/data/daily_rate_sheet.csv
 # out...
-# C:/Users/konra/DesKtop/FinTech_Workspace/M02/M2_Challenge/W-A-R-N-I-N-G-_-L-I-V-E-_-G-I-T-_-R-E-P-O-M02/Module_2_Challenge_Loan_Qualifier_Software_Design/loan_qualifier/qualifying_loans.csv
+# C:/Users/konra/DesKtop/FinTech_Workspace/M02/M2_Challenge/W-A-R-N-I-N-G-_-L-I-V-E-_-G-I-T-_-R-E-P-O-M02/Module 2 Challenge - Loan Qualifier Software Design/loan_qualifier/qualifying_loans.csv
