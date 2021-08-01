@@ -31,7 +31,7 @@ def load_csv(csvpath):
 
 
 def save_csv(csvpath, data, header=None):
-    """Saves the CSV file from path provided.
+    """Saves the CSV file to the path provided.
 
     Args:
         csvpath (Path): The CSV file path.

@@ -40,23 +40,31 @@ def load_bank_data():
 
 
 def get_applicant_info():
-    """Prompt dialog to get the applicant's financial information.
+    """Request the applicant's Income, Debt, and Loan information.
+    
+    Args:
+        credit_score (int): The applicant's current credit score.
+        debt (float): The applicant's total monthly debt payments.
+        income (float): The applicant's total monthly income.
+        loan (float): The total loan amount applied for.
+        home_value (float): The estimated home value.
 
-    Returns:
-        Returns the applicant's financial information.
+    Returns: Information necessary for processing the loan application.
+
     """
-
-    credit_score = questionary.text("What's your credit score?").ask()
-    debt = questionary.text("What's your current amount of monthly debt?").ask()
-    income = questionary.text("What's your total monthly income?").ask()
-    loan_amount = questionary.text("What's your desired loan amount?").ask()
-    home_value = questionary.text("What's your home value?").ask()
+    credit_score = questionary.text("Please provide your credit score:").ask()
+    debt = questionary.text("Please provide your current amount of monthly debt:").ask()
+    income = questionary.text("Please provide your total monthly income:").ask()
+    loan_amount = questionary.text("Please provide your desired loan amount:").ask()
+    home_value = questionary.text("Please provide your home's value:").ask()
 
     credit_score = int(credit_score)
     debt = float(debt)
     income = float(income)
     loan_amount = float(loan_amount)
     home_value = float(home_value)
+
+    # print(credit_score, debt, income, loan_amount, home_value)
 
     return credit_score, debt, income, loan_amount, home_value
 
@@ -96,21 +104,12 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     bank_data_filtered = filter_credit_score(credit_score, bank_data_filtered)
     bank_data_filtered = filter_debt_to_income(monthly_debt_ratio, bank_data_filtered)
     bank_data_filtered = filter_loan_to_value(loan_to_value_ratio, bank_data_filtered)
-
+    
     print(f"Found {len(bank_data_filtered)} qualifying loans")
 
+    print(bank_data_filtered)
+
     return bank_data_filtered
-
-
-# def save_qualifying_loans(qualifying_loans):
-#     """Saves the qualifying loans to a CSV file.
-
-#     Args:
-#         qualifying_loans (list of lists): The qualifying bank loans.
-#     """
-
-#     csvpath = Path('...qualifying_loans.csv')
-#     save_csv(csvpath, qualifying_loans)
 
 
 def save_qualifying_loans(qualifying_loans):
@@ -119,10 +118,19 @@ def save_qualifying_loans(qualifying_loans):
     Args:
         qualifying_loans (list of lists): The qualifying bank loans.
     """
-    csvpath = questionary.text("Enter a file path for saving the Qualifying_Loans (.csv):").ask()
-    save_csv(csvpath, qualifying_loans)
+    if (len(qualifying_loans)) < 1:
+        sys.exit("There are no qualifying loans. Exiting the Qualifier App.")
+        
+    save_prompt = questionary.confirm("Would you like to save the list of Qualifying Loans?").ask()
 
-    print(">>>> Great!!! The Qualifying Loans have been saved to the path provided. <<<<")
+    if save_prompt:
+        csvpath = questionary.text(
+            "Enter a file path for saving the qualifying_loans.csv:"
+        ).ask()
+        save_csv(csvpath, qualifying_loans)
+        print(">>>> Great!!! The Qualifying Loans have been saved to the path provided. <<<<")
+
+    
 
 
 
